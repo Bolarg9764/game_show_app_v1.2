@@ -53,13 +53,13 @@ function addPhraseToDisplay(array){
 
 NewPhrase();
 
-const ThisAnimation = [
+/* const ThisAnimation = [
    { transform: 'rotate(5deg) scale(1.5)' }
 ];
 const ThisAnimationTiming = {
     duration: 2000,
     iterations: 1,
-};
+}; */
 
        
         
@@ -69,13 +69,6 @@ let checkLetter = (button) => {
     for (let i = 0; i < letter.length; i++){
        if(letter[i].textContent === button){
            letter[i].classList.toggle('show');
-            /*   if (letter.classList === "show") {
-                    letter[i].animate(
-                    { transform: 'rotate(5deg) scale(1.5)'},
-                    { duration: 2000}
-                        ); 
-	            
-                } */
            var match = letter[i];
            } else {
                var match = null;
@@ -91,6 +84,7 @@ qwerty.addEventListener('click', (e) => {
         button.setAttribute("disabled", "");
         let letterFound = checkLetter(button.textContent);
         if(letterFound === null) {
+            button.style.backgroundColor = "orange";
             heart[missed].src = 'images/lostHeart.png';
             missed++;
         } 
