@@ -52,17 +52,7 @@ function addPhraseToDisplay(array){
     
 
 NewPhrase();
-
-/* const ThisAnimation = [
-   { transform: 'rotate(5deg) scale(1.5)' }
-];
-const ThisAnimationTiming = {
-    duration: 2000,
-    iterations: 1,
-}; */
-
-       
-        
+      
 
 let checkLetter = (button) => {
    const letter = document.querySelectorAll('.letter');
@@ -82,13 +72,14 @@ qwerty.addEventListener('click', (e) => {
     if(button.tagName === 'BUTTON') {
         button.className = 'chosen';
         button.setAttribute("disabled", "");
-        let letterFound = checkLetter(button.textContent);
-        if(letterFound === null) {
-            button.style.backgroundColor = "orange";
-            heart[missed].src = 'images/lostHeart.png';
-            missed++;
-        } 
-    }     
+        
+    }    
+    let letterFound = checkLetter(button.textContent);
+    if(letterFound === null) {
+        //button.style.backgroundColor = "orange";
+        heart[missed].src = 'images/lostHeart.png';
+        missed++;
+    } 
     checkWin();
 });
        
@@ -104,7 +95,7 @@ const checkWin = () => {
         overlay.style.display = 'flex';
         ResetBtn.textContent = "Reset Game";
         reset();
-            } else if (missed >= 5) {
+            } else if (missed > 4) {
                 overlay.classList.add('lose');
                 headline.textContent = 'You lose.';
                 overlay.style.display = 'flex';
@@ -132,7 +123,7 @@ function reset() {
     ResetPhrase();
     const chosenBtn = document.querySelectorAll('button');
     for (let i = 0; i < chosenBtn.length; i++) {
-        overlay.classList.add('start');
+        //overlay.classList.add('start');
         overlay.style.display = ' ';
         chosenBtn[i].removeAttribute('disabled', '');
         chosenBtn[i].classList.remove('chosen');
