@@ -84,6 +84,7 @@ button {
   padding: 20px 1px 0 1px;
   margin-right: 2px;
   color: transparent;
+  transition: all .5s;
   background: var(--color-neutral-light);
   border-radius: 5px;
 }

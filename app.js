@@ -4,7 +4,7 @@ const ul = document.querySelector('#phrase ul');
 const ResetBtn = document.querySelector('.btn__reset');
 const overlay = document.getElementById('overlay');
 const heart = document.querySelectorAll('.tries img');
-
+const letter = document.querySelectorAll('.letter');
 
 var missed = 0;
 
@@ -53,12 +53,29 @@ function addPhraseToDisplay(array){
 
 NewPhrase();
 
+const ThisAnimation = [
+   { transform: 'rotate(5deg) scale(1.5)' }
+];
+const ThisAnimationTiming = {
+    duration: 2000,
+    iterations: 1,
+};
+
+       
+        
 
 let checkLetter = (button) => {
    const letter = document.querySelectorAll('.letter');
     for (let i = 0; i < letter.length; i++){
        if(letter[i].textContent === button){
            letter[i].classList.toggle('show');
+            /*   if (letter.classList === "show") {
+                    letter[i].animate(
+                    { transform: 'rotate(5deg) scale(1.5)'},
+                    { duration: 2000}
+                        ); 
+	            
+                } */
            var match = letter[i];
            } else {
                var match = null;
@@ -68,7 +85,6 @@ let checkLetter = (button) => {
   } 
  
 qwerty.addEventListener('click', (e) => {
-    var missed = 0;
     let button = e.target;
     if(button.tagName === 'BUTTON') {
         button.className = 'chosen';
@@ -84,7 +100,7 @@ qwerty.addEventListener('click', (e) => {
        
 
 const checkWin = () => {
-    var missed = 0;
+    
     let letter = document.querySelectorAll('.letter');
     let show = document.querySelectorAll('.show');
     let headline = document.querySelector('.title');
@@ -103,9 +119,7 @@ const checkWin = () => {
             } 
 } 
         
-        
- 
-    //NewPhrase();
+     
 
 
     function NewPhrase() {
