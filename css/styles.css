@@ -96,10 +96,13 @@ button {
 .show {
   color: #000;
   background-color: #76CE82;
+  transform: scale(1.1);
+  transition: scale 2s ease-in;
 }
+  
 
 /* Keyboard */
-
+ 
 .keyrow {
   display: flex;
   justify-content: center;
